@@ -20,3 +20,14 @@ exports.listVehicles = async () => {
         });
     });
 };
+
+
+exports.deleteVehicles = async (id) => {
+    const sql = 'DELETE FROM vehiculos WHERE id = ?';
+    return new Promise((resolve, reject) => {
+        db.query(sql, [id], (err, result) => {
+            if (err) return reject(err);
+            resolve({ success: true, message: 'Vehículo eliminado con éxito' });
+        });
+    });
+};
