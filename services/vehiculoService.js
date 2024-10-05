@@ -31,3 +31,13 @@ exports.deleteVehicles = async (id) => {
         });
     });
 };
+
+exports.getVehicle = async (id) => {
+    const sql = 'SELECT * FROM vehiculos WHERE id = ?';
+    return new Promise((resolve, reject) => {
+        db.query(sql, [id], (err, result) => {
+            if (err) return reject(err);
+            resolve(result);
+        });
+    });
+};

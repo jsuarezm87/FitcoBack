@@ -28,3 +28,13 @@ exports.deleteVehicles = async (req, res) => {
         res.status(500).json({ success: false, message: err.message });
     }
 };
+
+exports.getVehicle = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const response = await vehiculoService.getVehicle(id);
+        res.json(response);
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
+    }
+};
