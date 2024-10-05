@@ -9,3 +9,12 @@ exports.registrarVehiculo = async (req, res) => {
         res.status(500).json({ success: false, message: err.message });
     }
 };
+
+exports.listVehicles = async (req, res) => {
+    try {
+        const response = await vehiculoService.listVehicles();
+        res.json(response);
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
+    }
+};

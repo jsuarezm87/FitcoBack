@@ -9,3 +9,14 @@ exports.registrarVehiculo = async (make, model, year, color, licensePlate, price
         });
     });
 };
+
+exports.listVehicles = async () => {
+   
+    const sql = 'SELECT * FROM vehiculos';
+    return new Promise((resolve, reject) => {
+        db.query(sql, (err, result) => {
+            if (err) return reject(err);
+            resolve(result);
+        });
+    });
+};
